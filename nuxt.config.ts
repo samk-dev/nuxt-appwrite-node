@@ -25,5 +25,8 @@ export default defineNuxtConfig({
   },
   build: {
     transpile: ['node-appwrite', 'zod']
+  },
+  nitro: {
+    preset: 'cloudflare-pages'
   }
 })
