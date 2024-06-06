@@ -15,7 +15,10 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event)
   const requestHost = getRequestHost(event)
 
-  const host = removePortFromUrl(requestHost)
+  const host =
+    process.env.NODE_ENV === 'development'
+      ? removePortFromUrl(requestHost)
+      : requestHost
 
   try {
     const session = await account.createEmailPasswordSession(email, password)
