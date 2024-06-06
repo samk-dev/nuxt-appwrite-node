@@ -23,7 +23,6 @@ export default defineEventHandler(async (event) => {
   try {
     const session = await account.createEmailPasswordSession(email, password)
     setCookie(event, config.appwrite.cookieName, session.secret, {
-      domain: host,
       expires: new Date(session.expire),
       path: '/',
       httpOnly: true,
