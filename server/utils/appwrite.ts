@@ -1,5 +1,14 @@
 import { type H3Event } from 'h3'
-import { Client, Account, Databases, AppwriteException } from 'node-appwrite'
+import {
+  Client,
+  Account,
+  Databases,
+  Storage,
+  ID,
+  AppwriteException,
+  OAuthProvider
+} from 'node-appwrite'
+import { InputFile } from 'node-appwrite/file'
 
 export const useAppwriteAdminClient = (e: H3Event) => {
   const config = useRuntimeConfig(e)
@@ -14,6 +23,9 @@ export const useAppwriteAdminClient = (e: H3Event) => {
   return {
     get account() {
       return new Account(client)
+    },
+    get oAuthProvider() {
+      return OAuthProvider
     }
   }
 }
@@ -36,6 +48,15 @@ export const useAppwriteSessionClient = (e: H3Event) => {
     },
     get database() {
       return new Databases(client)
+    },
+    get storage() {
+      return new Storage(client)
+    },
+    get ID() {
+      return ID
+    },
+    get inputeFile() {
+      return InputFile
     }
   }
 }

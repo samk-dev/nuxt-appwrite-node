@@ -69,6 +69,14 @@ const onLogin = async (event: FormSubmitEvent<FormLogin>) => {
           Sign in &rarr;
         </UButton>
       </UForm>
+
+      <UDivider label="Or" class="my-4" />
+      <div class="text-center">
+        <form action="/api/v1/oauth" method="post">
+          <input type="hidden" name="provider" value="spotify" />
+          <UButton type="submit" variant="soft">Sign up with Spotify</UButton>
+        </form>
+      </div>
     </UCard>
   </div>
 </template>
