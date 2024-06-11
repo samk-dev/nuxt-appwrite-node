@@ -14,13 +14,15 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      apiPath: '/api/v1'
+      appDomain: '',
+      apiPath: ''
     },
     appwrite: {
       endpoint: '',
       project: '',
       apiKey: '',
-      cookieName: ''
+      cookieName: '',
+      bucketSsr: ''
     }
   },
   build: {

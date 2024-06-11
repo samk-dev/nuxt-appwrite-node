@@ -17,8 +17,9 @@ export const useAuth = () => {
     await $appwrite('/session', {
       method: 'DELETE'
     })
+
     user.value = null
-    await navigateTo({
+    return await navigateTo({
       name: 'login'
     })
   }
