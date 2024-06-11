@@ -1,6 +1,6 @@
 export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig(event)
-  const { storage, inputeFile, ID } = useAppwriteSessionClient(event)
+  // const config = useRuntimeConfig(event)
+  // const { storage, inputeFile, ID } = useAppwriteSessionClient(event)
 
   // try {
   //   const form = await readMultipartFormData(event)
