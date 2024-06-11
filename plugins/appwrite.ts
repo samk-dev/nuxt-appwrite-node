@@ -5,7 +5,10 @@ export default defineNuxtPlugin({
     const config = useRuntimeConfig()
     const headers = useRequestHeaders(['cookie'])
 
-    const appwrite = $fetch.create({ baseURL: config.public.apiPath, headers })
+    const appwrite = $fetch.create({
+      baseURL: `/${config.public.apiPath}`,
+      headers
+    })
 
     return {
       provide: {

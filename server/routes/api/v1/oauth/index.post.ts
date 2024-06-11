@@ -2,7 +2,7 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event)
   const { account, oAuthProvider } = useAppwriteAdminClient(event)
 
-  const successUrl = `${config.public.appDomain}${config.public.apiPath}/oauth`
+  const successUrl = `${config.public.appDomain}/${config.public.apiPath}/oauth`
   try {
     const redirectUrl = await account.createOAuth2Token(
       oAuthProvider.Spotify,
