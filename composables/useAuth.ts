@@ -2,10 +2,10 @@ import type { FormLogin } from '~/types'
 
 export const useAuth = () => {
   const user = useUser()
-  const { $appwrite } = useNuxtApp()
+  const appwrite = useAppwrite()
 
   const createEmailSession = async (credentials: FormLogin) =>
-    await $appwrite('/session', {
+    await appwrite('/session', {
       method: 'POST',
       body: {
         email: credentials.email,
@@ -13,8 +13,10 @@ export const useAuth = () => {
       }
     })
 
+  // TODO: password reset
+
   const logout = async () => {
-    await $appwrite('/session', {
+    await appwrite('/session', {
       method: 'DELETE'
     })
 
